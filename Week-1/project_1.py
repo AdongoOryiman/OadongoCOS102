@@ -17,14 +17,14 @@ while True:
      p_2 = float(input("Enter the Principal Amount: "))
      r_2 = float(input("Enter the Rate of Interest: "))
      t_2 = float(input("Enter the Time Period: "))
-     n = float(input("Enter the number of times the interest is compounded: "))
+     n = float(input("Enter the number of times the interest is compounded per year: "))
      b = p_2 * (1.0 + r_2/n) ** (n * t_2)
      print("Compound Interest = " + str(b))
  elif buffer == "3":
-     p_3 = float(input("Enter the Principal Amount: "))
+     p_3 = float(input("Enter the Periodic Payment: "))
      r_3 = float(input("Enter the Rate of Interest: "))
      t_3 = float(input("Enter the Time Period: "))
-     n = float(input("Enter the number of times the interest is compounded: "))
+     n = float(input("Enter the number of times the interest is compounded per year: "))
      c = p_3 * ((1.0 + r_3/n) ** (n * t_3) - 1.0) / (r_3/n)
      print("Annuity Plan = " + str(c))
  elif buffer == "4":
