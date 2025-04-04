@@ -1,0 +1,89 @@
+FUNCTION checkout
+
+  // Initialize variables
+  DECLARE total_amount AS NUMBER
+  SET total_amount TO 0
+  DECLARE cart AS ARRAY OF ITEM
+  DECLARE item AS ITEM
+  DECLARE amount_paid AS NUMBER
+  DECLARE change AS NUMBER
+
+  // Get items in cart
+  cart = getCart()  
+
+  DISPLAY "
+--- Checkout ---
+"
+
+  // Iterate through each item in the cart
+  FOR EACH item IN cart DO
+    DISPLAY item.name + " - $" + item.price  // Display item name and price
+    total_amount = total_amount + item.price      // Accumulate total amount
+  END FOR
+
+  // Display total
+  DISPLAY "
+-----------------
+Total: $" + total_amount
+
+    INPUT "Enter amount paid: $" TO amount_paid
+    change = amount_paid - total_amount
+    IF change >= 0 THEN
+      DISPLAY "Payment successful."
+      DISPLAY "Change: $" + change
+    ELSE
+      DISPLAY "Insufficient amount."
+    END IF
+
+  // Receipt
+  printReceipt(cart, total_amount)
+
+  DISPLAY "
+Thank you for your purchase!"
+
+END FUNCTION
+
+// Supporting Functions
+
+FUNCTION getCart() RETURNS ARRAY OF ITEM
+  DECLARE cart AS ARRAY OF ITEM
+  DECLARE it AS ITEM
+  DECLARE price AS Item
+  DECLARE lenght AS NUMBER
+  DECLARE itemNum AS NUMBER
+  INPUT "Enter number of items purshased: " TO itemNum
+  SET lenght TO itemNum
+
+  FOR EACH item IN lenght DO
+  INPUT "Enter name of item purshased: " TO it.name
+  INPUT "Enter price of item purshased: " TO it.price
+  ADD it TO cart
+
+  RETURN cart
+END FUNCTION
+
+FUNCTION printReceipt(cart AS ARRAY OF ITEM, total_amount AS NUMBER)
+  // This function prints the receipt.
+  DISPLAY "
+--- Receipt ---
+"
+  DISPLAY "Date: " + getCurrentDate()  // Get current date
+  DISPLAY "
+--- Items ---
+"
+  FOR EACH item IN cart DO
+    DISPLAY item.name + " - $" + item.price
+  END FOR
+  DISPLAY "
+-----------------
+"
+  DISPLAY "Total: $" + total_amount
+  DISPLAY "
+-----------------
+"
+END FUNCTION
+
+FUNCTION getCurrentDate() RETURNS STRING
+  //Returns current date
+  RETURN "2024-07-24" 
+END FUNCTION
