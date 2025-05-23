@@ -1,9 +1,9 @@
-# Program to check if a number is positive, negative or zero
+def changeme( mylist ):
+   "#This changes a passed list"
+   mylist.append([1,2,3,4])
+   print ("Values inside the function: ", mylist)
+   return
 
-num = float(input("Enter a number: "))
-if num > 0:
-    print("Positive number")
-elif num == 0:
-    print("Zero")
-else:
-    print("Negative number")
+mylist = [10,20,30]
+changeme( mylist )
+print ("Values outside the function: ", mylist)

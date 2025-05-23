@@ -1,7 +1,13 @@
-str = input("Enter your state of origin:")
+# Python program to swap two cities
 
-print("Your state of origin is: ", str)
-print("The first character is: ", str[0])
-print("The characters starting from 3rd to 5th are: ", str[2:5])
-print("The string starting from 3rd character is: ", str[2:])
-print("State of origin two times", str * 2)
+# To take inputs from the users
+city_1 = input('Enter name of City 1: ')
+city_2 = input('Enter name of City 2: ')
+
+# Create a temporary variable and swap the cities
+temp = city_1
+city_1 = city_2
+city_2 = temp
+
+print(f"The name of City 1 after swapping is {city_1}")
+print(f"The name of City 2 after swapping is {city_2}")
